@@ -1,0 +1,7 @@
+*.env
+*.pyc
+.idea
+*.swp 
+celerybeat.pid
+celerybeat-schedule
+__pycache__

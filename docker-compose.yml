@@ -1,0 +1,27 @@
+#-------------------------------get-proxy-ip-service----------------------
+proxyip-api:
+    build: .
+    env_file:
+        - proxyip.env
+    command: gunicorn wsgi:app -k aiohttp.worker.GunicornWebWorker -b 0.0.0.0:1299
+    ports:
+        - "1299:1299"
+
+
+
+
+#-------------------- celerybeat --------------------------
+celery1:
+    build: .
+    env_file:
+        - proxyip.env
+    command: celery -A service.periodic_task beat --loglevel=INFO
+
+#-------------------- celeryworker --------------------------
+celery2:
+    build: .
+    env_file:
+        - proxyip.env
+    command: celery -A service.periodic_task worker --loglevel=INFO
+
+

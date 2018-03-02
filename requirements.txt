@@ -1,0 +1,10 @@
+aiohttp==2.3.5
+aiohttp-session==2.0.0
+async-timeout==2.0.0
+gunicorn==19.6.0
+cryptography==1.7.2
+aioredis==0.3.0
+celery==4.1.0
+redis==2.10.6
+yarl==0.10.1
+requests
